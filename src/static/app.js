@@ -39,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button
                       type="button"
                       class="participant-remove-btn"
-                      data-activity="${encodeURIComponent(name)}"
-                      data-email="${encodeURIComponent(participant)}"
+                      data-activity="${escapeHtml(name)}"
+                      data-email="${escapeHtml(participant)}"
                       aria-label="Remove ${escapeHtml(participant)}"
                       title="Remove participant"
                     >&#128465;</button>
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 `
               )
               .join("")
-          : "<li class=\"participants-empty\">No participants yet</li>";
+          : `<li class="participants-empty">No participants yet</li>`;
 
         activityCard.innerHTML = `
           <h4>${escapeHtml(name)}</h4>
